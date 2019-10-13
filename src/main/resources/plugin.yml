@@ -1,0 +1,61 @@
+name: XcraftChunky
+version: ${pom.version}
+author: Salami555
+description: WorldGuard based chunk claiming plugin.
+api-version: 1.13
+
+main: de.groovybyte.spigot.xcraftchunky.XcraftChunky
+load: POSTWORLD
+
+depend: [WorldGuard, Vault]
+
+commands:
+  chunk:
+    aliases: [cr, chunkregion]
+#        permission: xcraftchunky.chunkregion.*
+#  chunkregion:
+#    aliases: cr
+#
+permissions:
+  xcraftchunky.chunkregion.info:
+    default: true
+  xcraftchunky.chunkregion.owned:
+    default: true
+  xcraftchunky.chunkregion.claim:
+    default: op
+  xcraftchunky.chunkregion.append:
+    default: op
+  xcraftchunky.chunkregion.*:
+    description: Access to chunkregion commands
+    default: op
+    children:
+      xcraftchunky.chunkregion.info: true
+      xcraftchunky.chunkregion.owned: true
+      xcraftchunky.chunkregion.claim: op
+      xcraftchunky.chunkregion.append: op
+
+#permissions:
+#    xcraftchunky.admin:
+#        description: Access to reload/save commands
+#        children:
+#            xcraftchunky.save: true
+#            xcraftchunky.load: true
+#            xcraftchunky.reload: true
+#            xcraftchunky.delete.all: true
+#            removechunky.removechunk.all: true
+#            xcraftchunky.info.all: true
+#        default: op
+#    xcraftchunky.region:
+#        description: Access  to all region commands
+#        children:
+#            xcraftchunky.create: true
+#            xcraftchunky.delete: true
+#            xcraftchunky.list: true
+#            xcraftchunky.info: true
+#            xcraftchunky.addchunk: true
+#            xcraftchunky.removechunk: true
+#            xcraftchunky.addowner: true
+#            xcraftchunky.removeowner: true
+#            xcraftchunky.addmemner: true
+#            xcraftchunky.removemember: true
+#        default: op
